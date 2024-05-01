@@ -1,0 +1,81 @@
+routing 
+
+fist install third party router dom
+ npm i react-router-dom
+
+to use routing first we have to apply it in the app.jsx 
+ti apply in the app.jsx ->
+
+<BrowserRouter>
+    <App />
+</BrowserRouter>
+
+we have to put app tag inside the </BrowserRouter> in main.jsx
+
+you can use routing like this -> 
+<Link to="/">Home</Link>
+<Link to="/user">User</Link>
+
+agar aap chahate hai ki ek time me ek hi componenet dikh 2 componenet ek sath na dikhe toh uss chiz ke liye ek bhot hi spacial tag use hota hai jo react dom aap ko deta hai uss ka naam hai 
+<Routes></Routes>
+
+import React from 'react';
+import { Link, Route, Routes } from 'react-router-dom';
+import Home from './component/Home';
+import User from './component/User';
+import About from './component/About';
+
+function App() {
+  return (
+    <>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/user">User</Link>
+        <Link to="/about">About</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
+  );
+}
+
+export default App;
+
+------------------------------------------------------------------------------------------------
+
+abb hame chahiye ki jis comp me apan ho use ka naam red rahe iske liye hame link ko NavLink me convert karna hota hai 
+
+import React from "react";
+import { NavLink } from 'react-router-dom';
+
+function Nav() {
+  return (
+    <nav className="mt-10 flex justify-center gap-4 ">
+      <NavLink style={(e) => {
+        return {
+            color : e.isActive ? "tomato" : "",
+        }
+      }} to="/">Home</NavLink>
+      <NavLink style={(e) => {
+        return {
+            color : e.isActive ? "tomato" : "",
+        }
+      }} to="/user">User</NavLink>
+      <NavLink style={(e) => {
+        return {
+            color : e.isActive ? "tomato" : "",
+        }
+      }} to="/about">About</NavLink>
+    </nav>
+  );
+}
+
+export default Nav;
+ 
+------------------------------------------------------------------------------------------
+
+
